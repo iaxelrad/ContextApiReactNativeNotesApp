@@ -2,6 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import ListNotesScreen from './src/components/ListNotesScreen';
+import {NotesContext} from './src/context/NotesContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,5 +17,9 @@ const App = () => {
 };
 
 export default () => {
-  return <App />;
+  return (
+    <NotesContext.Provider value={10}>
+      <App />
+    </NotesContext.Provider>
+  );
 };
