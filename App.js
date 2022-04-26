@@ -10,7 +10,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Notes" component={ListNotesScreen} />
+        <Stack.Screen
+          name="Notes"
+          options={{
+            headerTitleAlign: 'center',
+            title: 'All Notes',
+          }}
+          component={ListNotesScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
