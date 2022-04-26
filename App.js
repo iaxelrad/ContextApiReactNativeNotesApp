@@ -1,8 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import ListNotesScreen from './src/screens/ListNotesScreen';
 import {NotesProvider} from './src/context/NotesContext';
+import ListNotesScreen from './src/screens/ListNotesScreen';
+import CreateNoteScreen from './src/screens/CreateNoteScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,14 @@ const App = () => {
             title: 'All Notes',
           }}
           component={ListNotesScreen}
+        />
+        <Stack.Screen
+          name="Create"
+          options={{
+            headerTitleAlign: 'center',
+            title: 'Create Note',
+          }}
+          component={CreateNoteScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

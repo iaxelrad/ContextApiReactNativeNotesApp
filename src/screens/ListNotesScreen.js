@@ -3,14 +3,14 @@ import {Text, View, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import {NotesContext} from '../context/NotesContext';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const ListNotesScreen = () => {
+const ListNotesScreen = ({navigation}) => {
   const {state, dispatch} = useContext(NotesContext);
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => dispatch({type: 'ADD'})}>
+          onPress={() => navigation.navigate('Create')}>
           <Icon name="plus" size={30} color="white" />
         </TouchableOpacity>
       </View>
