@@ -1,7 +1,13 @@
-import React, {createContext} from 'react';
+import React, {createContext, useReducer} from 'react';
+import {initialState, reducer as NotesReducer} from '../reducer/NotesReducer';
 
 export const NotesContext = createContext();
 
 export const NotesProvider = ({children}) => {
-  return <NotesContext.Provider value={12}>{children}</NotesContext.Provider>;
+  const [state, dispatch] = useReducer(NotesReducer, initialState);
+  return (
+    <NotesContext.Provider value={{state, dispatch}}>
+      {children}
+    </NotesContext.Provider>
+  );
 };
