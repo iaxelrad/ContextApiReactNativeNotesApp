@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import ListNotesScreen from './src/components/ListNotesScreen';
+import ListNotesScreen from './src/screens/ListNotesScreen';
 import {NotesProvider} from './src/context/NotesContext';
 
 const Stack = createNativeStackNavigator();
