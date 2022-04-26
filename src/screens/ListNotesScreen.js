@@ -22,7 +22,9 @@ const ListNotesScreen = () => {
           return (
             <View style={styles.item}>
               <Text style={styles.text}>{item.title}</Text>
-              <TouchableOpacity style={styles.deleteButton} onPress={() => {}}>
+              <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={() => dispatch({type: 'DELETE', payload: item.id})}>
                 <Icon name="delete" size={24} />
               </TouchableOpacity>
             </View>
