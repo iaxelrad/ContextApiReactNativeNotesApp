@@ -5,6 +5,7 @@ import {NotesProvider} from './src/context/NotesContext';
 import ListNotesScreen from './src/screens/ListNotesScreen';
 import CreateNoteScreen from './src/screens/CreateNoteScreen';
 import ShowNoteScreen from './src/screens/ShowNoteScreen';
+import EditNoteScreen from './src/screens/EditNoteScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,14 @@ const App = () => {
             title: 'Note',
           }}
           component={ShowNoteScreen}
+        />
+        <Stack.Screen
+          name="Edit"
+          options={{
+            headerTitleAlign: 'center',
+            title: 'Update Note',
+          }}
+          component={EditNoteScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
