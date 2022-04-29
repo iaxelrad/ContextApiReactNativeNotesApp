@@ -8,7 +8,7 @@ import {
 import React, {useState, useContext} from 'react';
 import {NotesContext} from '../context/NotesContext';
 
-const CreateNoteScreen = () => {
+const CreateNoteScreen = ({navigation}) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const {state, dispatch} = useContext(NotesContext);
@@ -30,7 +30,10 @@ const CreateNoteScreen = () => {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => dispatch({type: 'ADD', payload: {title, content}})}>
+        onPress={() => {
+          dispatch({type: 'ADD', payload: {title, content}});
+          navigation.goBack();
+        }}>
         <Text style={[styles.text, styles.whiteText]}>Save</Text>
       </TouchableOpacity>
     </View>
