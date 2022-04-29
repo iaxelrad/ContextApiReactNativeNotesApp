@@ -14,7 +14,6 @@ const ListNotesScreen = ({navigation}) => {
           <Icon name="plus" size={30} color="white" />
         </TouchableOpacity>
       </View>
-      <Text>Notes App</Text>
       <FlatList
         data={state}
         keyExtractor={item => item.title}
