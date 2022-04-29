@@ -35,8 +35,8 @@ const EditNoteScreen = ({navigation, route}) => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          dispatch({type: 'ADD', payload: {title, content}});
-          navigation.goBack();
+          dispatch({type: 'UPDATE', payload: {id, title, content}});
+          navigation.navigate('Notes');
         }}>
         <Text style={[styles.text, styles.whiteText]}>Save</Text>
       </TouchableOpacity>

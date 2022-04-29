@@ -15,6 +15,17 @@ export const reducer = (state, {type, payload}) => {
       ];
     case 'DELETE':
       return state.filter(item => item.id !== payload);
+    case 'UPDATE':
+      return state.map(item => {
+        if (item.id === payload.id) {
+          return {
+            ...item,
+            title: payload.title,
+            content: payload.content,
+          };
+        }
+        return item;
+      });
     default:
       return state;
   }
