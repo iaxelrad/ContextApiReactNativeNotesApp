@@ -20,14 +20,19 @@ const ListNotesScreen = ({navigation}) => {
         keyExtractor={item => item.title}
         renderItem={({item}) => {
           return (
-            <View style={styles.item}>
-              <Text style={styles.text}>{item.title}</Text>
-              <TouchableOpacity
-                style={styles.deleteButton}
-                onPress={() => dispatch({type: 'DELETE', payload: item.id})}>
-                <Icon name="delete" size={24} />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Show', {id: item.id});
+              }}>
+              <View style={styles.item}>
+                <Text style={styles.text}>{item.title}</Text>
+                <Icon
+                  name="delete"
+                  size={24}
+                  onPress={() => dispatch({type: 'DELETE', payload: item.id})}
+                />
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
@@ -50,10 +55,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   deleteButton: {
-    // backgroundColor: 'blue',
-    // width: 50,
-    // height: 50,
-    // borderRadius: 50 / 2,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
@@ -62,7 +63,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 10,
-    alignItems: 'center',
+    marginBottom: 5,
+    backgroundColor: 'white',
+    padding: 10,
+    elevation: 4,
   },
   text: {fontSize: 22},
 });
