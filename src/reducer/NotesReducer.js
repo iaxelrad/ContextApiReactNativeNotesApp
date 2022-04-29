@@ -1,4 +1,6 @@
-export const initialState = [];
+export const initialState = [
+  {id: 1, title: 'Note 1', content: 'Note 1 content'},
+];
 
 export const reducer = (state, {type, payload}) => {
   switch (type) {
